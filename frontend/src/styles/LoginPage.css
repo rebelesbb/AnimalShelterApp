@@ -1,0 +1,87 @@
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem 2rem 2rem 2rem;
+    gap: 4rem;
+    background-color: white;
+    margin-top: 5rem;
+}
+
+.login-box {
+    background-color: #e0fff8;
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin-left: -100px;
+    margin-right: 100px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.login-box h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+.login-input {
+    display: block;
+    width: 100%;
+    padding: 0.6rem 1rem;
+    margin: 0.5rem 4rem 2rem -1rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.login-btn {
+    margin-top: 1rem;
+    background-color: #c0f8f1;
+    border: none;
+    border-radius: 10px;
+    padding: 0.6rem 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background-color: #aef5eb;
+}
+
+.login-footer {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.login-footer a {
+    color: #0077cc;
+    text-decoration: none;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+}
+
+.login-motto {
+    position: relative;
+    max-width: 500px;
+}
+
+.login-motto h1 {
+    font-size: 70px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #111;
+    margin: 0;
+}
+
+.login-dog {
+    position: absolute;
+    top: -21.5px;
+    right: 5px;
+    width: 80px;
+    height: auto;
+}
