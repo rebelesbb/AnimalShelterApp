@@ -1,0 +1,4 @@
+### GET all animals
+GET http://localhost:8080/api/animals
+### GET one animal
+GET http://localhost:8080/api/animals/3
