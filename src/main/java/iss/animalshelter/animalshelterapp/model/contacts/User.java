@@ -1,6 +1,5 @@
-package iss.animalshelter.animalshelterapp.model.users;
+package iss.animalshelter.animalshelterapp.model.contacts;
 
-import iss.animalshelter.animalshelterapp.model.Person;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;

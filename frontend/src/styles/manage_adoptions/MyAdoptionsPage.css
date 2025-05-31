@@ -1,0 +1,86 @@
+.adoptions-container {
+    margin-top: 5rem;
+    padding: 2rem;
+    background-color: #ffffff;
+    min-height: 100vh;
+}
+
+.adoptions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.adoptions-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.adoption-item {
+    background-color: #e0fff8;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.adoption-content {
+    padding: 1rem;
+    background-color: #aef5eb;
+    font-size: 1rem;
+}
+
+.adoption-content div {
+    margin-bottom: 0.5rem;
+}
+
+.date-input {
+    margin-top: 0.5rem;
+    padding: 0.4rem;
+    border: 1px solid lightgray;
+    border-radius: 6px;
+    width: 99%;
+}
+
+.adoption-actions {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.8rem;
+    background-color: #f7f7f7;
+}
+
+.adoption-actions button {
+    flex: 1;
+    padding: 0.6rem;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.update-btn {
+    background-color: #c0f8f1;
+}
+
+.update-btn:hover {
+    background-color: #78ede8;
+}
+
+.cancel-btn {
+    background-color: #f8c0c0;
+}
+
+.cancel-btn:hover {
+    background-color: #f6adad;
+}
+
+.loading-text {
+    margin-top: 6rem;
+    text-align: center;
+}

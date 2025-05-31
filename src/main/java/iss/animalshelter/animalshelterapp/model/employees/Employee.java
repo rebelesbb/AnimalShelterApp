@@ -1,6 +1,6 @@
 package iss.animalshelter.animalshelterapp.model.employees;
 
-import iss.animalshelter.animalshelterapp.model.Person;
+import iss.animalshelter.animalshelterapp.model.contacts.Person;
 import iss.animalshelter.animalshelterapp.model.locations.Location;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;

@@ -1,0 +1,91 @@
+.manage-animals-container {
+    margin-top: 5rem;
+    padding: 2rem;
+    background-color: #ffffff;
+    min-height: 100vh;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.add-btn {
+    padding: 0.8rem 1.2rem;
+    background-color: #c0f8f1;
+    border: 1px solid lightgray;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.add-btn:hover {
+    background-color: #78ede8;
+}
+
+.manage-animals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2rem;
+}
+
+.manage-animal-card {
+    background-color: #e0fff8;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.manage-animal-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+.manage-card-info {
+    background-color: #aef5eb;
+    padding: 1rem;
+    font-size: 1.1rem;
+}
+
+.manage-actions {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem;
+}
+
+.modify-btn,
+.delete-btn {
+    flex: 1;
+    padding: 0.6rem;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.modify-btn {
+    background-color: #c0f8f1;
+}
+
+.modify-btn:hover {
+    background-color: #78ede8;
+}
+
+.delete-btn {
+    background-color: #f8c0c0;
+}
+
+.delete-btn:hover {
+    background-color: #f6adad;
+}
+
+.loading-text {
+    margin-top: 6rem;
+    text-align: center;
+}

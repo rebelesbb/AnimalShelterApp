@@ -2,3 +2,38 @@
 GET http://localhost:8080/api/animals
 ### GET one animal
 GET http://localhost:8080/api/animals/3
+
+### add animal
+### Add new animal with image
+POST http://localhost:8080/api/animals
+Content-Type: multipart/form-data; boundary=boundary123
+
+--boundary123
+Content-Disposition: form-data; name="animal"
+Content-Type: application/json
+
+{
+  "name": "Rex",
+  "birthDate": "2022-03-15",
+  "species": "Dog",
+  "breed": "Labrador",
+  "sex": "Male",
+  "size": "LARGE",
+  "weight": 28.5,
+  "coatType": "SHORT",
+  "temperament": "FRIENDLY",
+  "goodWithKids": true,
+  "goodWithAnimals": true,
+  "specialNeeds": "None",
+  "arrivalDate": "2024-11-01",
+  "description": "Loyal and playful.",
+  "status": "AVAILABLE",
+  "location": { "id": 1 }
+}
+
+--boundary123
+Content-Disposition: form-data; name="image"; filename="dog.jpg"
+Content-Type: image/jpg
+
+< ./cat_1.jpg
+--boundary123--

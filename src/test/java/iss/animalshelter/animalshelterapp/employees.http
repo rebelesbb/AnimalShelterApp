@@ -1,2 +1,58 @@
-GET http://localhost:8080/api/employees/username_marian
+### get one employee
+GET http://localhost:8080/api/employees/mionecu
 Authorization: Bearer <token>
+
+### get employees of location
+GET http://localhost:8080/api/employees?locationId=2
+
+### save new employee
+POST http://localhost:8080/api/employees
+Content-Type: application/json
+
+{
+  "name": "Andrei Ionescu",
+  "phoneNumber": "0712345679",
+  "username": "aionescu",
+  "password": "secret123",
+  "email": "andrei.ionescu@example.com",
+  "hireDate": "2024-04-17",
+  "salary": 4000.0,
+  "role": "ADMIN",
+  "locationId": 1
+}
+
+###
+POST http://localhost:8080/api/employees
+Content-Type: application/json
+
+{
+"name": "Maria Ponescu",
+"phoneNumber": "0723456759",
+"username": "mionecu",
+"password": "pass1234",
+"email": "maria.inescu@example.com",
+"hireDate": "2025-06-01",
+"salary": 3200.0,
+"role": "EMPLOYEE",
+"locationId": 2
+}
+
+### update employee
+PUT http://localhost:8080/api/employees/4
+Content-Type: application/json
+
+{
+  "name": "Maria Iancuesc",
+  "phoneNumber": "0723456759",
+  "username": "mionecu",
+  "password": "pass1234",
+  "email": "maria.inescu@example.com",
+  "hireDate": "2024-07-01",
+  "salary": 3100.0,
+  "role": "EMPLOYEE",
+  "locationId": 2
+}
+
+### delete employee
+DELETE http://localhost:8080/api/employees/5
+

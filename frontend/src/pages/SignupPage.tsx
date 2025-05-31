@@ -3,10 +3,13 @@ import "../styles/SignupPage.css";
 import Header from "../components/Header";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const SignupPage: React.FC = () => {
     const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
+
+    const redirectTo = searchParams.get("redirect") || "/";
 
     const [formData, setFormData] = useState({
         name: "",
@@ -38,7 +41,7 @@ const SignupPage: React.FC = () => {
                     phoneNumber: formData.phoneNumber,
                     username: formData.username,
                     email: formData.email,
-                    password: formData.password
+                    password: formData.password,
                 }),
             });
 
@@ -49,7 +52,7 @@ const SignupPage: React.FC = () => {
             }
 
             toast.success("Account successfully created!");
-            navigate("/login");
+            navigate(`/login?redirect=${encodeURIComponent(redirectTo)}`);
         } catch (err) {
             console.error(err);
             toast.error("Signup error.");
@@ -72,7 +75,8 @@ const SignupPage: React.FC = () => {
                         <button type="submit" className="signup-btn">Sign up</button>
                     </form>
                     <p className="signup-footer">
-                        Already have an account? <a href="/login">Log in!</a>
+                        Already have an account?{" "}
+                        <a href={`/login?redirect=${encodeURIComponent(redirectTo)}`}>Log in!</a>
                     </p>
                 </div>
 

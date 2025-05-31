@@ -82,10 +82,8 @@ const MainPage: React.FC = () => {
 
     return (
         <div className="main-container">
-            {/* Header-ul mutat aici */}
             <Header />
 
-            {/* Filtre */}
             <div className="filters-container">
                 <select
                     className="filter-dropdown"
@@ -121,7 +119,6 @@ const MainPage: React.FC = () => {
                 </select>
             </div>
 
-            {/* Grid cu animale */}
             <div className="card-grid">
                 {animals.map((animal) => (
                     <div

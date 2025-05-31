@@ -1,0 +1,118 @@
+.adoptions-container {
+    margin-top: 5rem;
+    padding: 2rem;
+    background-color: #ffffff;
+    min-height: 100vh;
+}
+
+.adoptions-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.adoption-item {
+    background-color: #e0fff8;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+}
+
+.adoption-content {
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.date-input {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.adoption-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.update-btn,
+.finish-btn,
+.cancel-btn,
+.view-btn,
+.confirm-btn {
+    padding: 0.6rem;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-weight: bold;
+}
+
+.update-btn {
+    background-color: #c0f8f1;
+}
+
+.update-btn:hover {
+    background-color: #78ede8;
+}
+
+.finish-btn {
+    background-color: #b2f2bb;
+}
+
+.finish-btn:hover {
+    background-color: #8ce99a;
+}
+
+.cancel-btn {
+    background-color: #f8c0c0;
+}
+
+.cancel-btn:hover {
+    background-color: #f6adad;
+}
+
+.view-btn {
+    background-color: #e0e0e0;
+}
+
+.view-btn:hover {
+    background-color: #d0d0d0;
+}
+
+.confirm-btn {
+    background-color: #a0d2ff;
+}
+
+.confirm-btn:hover {
+    background-color: #78bdf8;
+}
+
+button:disabled,
+input:disabled {
+    background-color: #cccccc !important;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.loading-text {
+    margin-top: 6rem;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+@media (max-width: 600px) {
+    .adoption-actions {
+        grid-template-columns: 1fr;
+    }
+}

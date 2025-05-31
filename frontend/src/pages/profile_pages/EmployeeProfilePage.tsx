@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
-import Header from "../components/Header";
-import ProfileCard from "../components/ProfileCard";
+import Header from "../../components/Header";
+import ProfileCard from "../../components/ProfileCard";
 import { useNavigate } from "react-router-dom";
-import "../styles/UserProfilePage.css";
+import "../../styles/UserProfilePage.css"; // Reuse same styles
 
-type User = {
+type Employee = {
     name: string;
     username: string;
     phoneNumber: string;
     email: string;
 };
 
-const UserProfilePage: React.FC = () => {
-    const [user, setUser] = useState<User | null>(null);
+const EmployeeProfilePage: React.FC = () => {
+    const [employee, setEmployee] = useState<Employee | null>(null);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -23,7 +23,7 @@ const UserProfilePage: React.FC = () => {
         const payload = JSON.parse(atob(base64Payload));
         const username = payload.sub;
 
-        fetch(`http://localhost:8080/api/users/${username}`, {
+        fetch(`http://localhost:8080/api/employees/${username}`, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
@@ -32,8 +32,8 @@ const UserProfilePage: React.FC = () => {
                 if (!res.ok) throw new Error("Fail");
                 return res.json();
             })
-            .then((data) => setUser(data))
-            .catch((err) => console.error("Failed to load user", err));
+            .then((data) => setEmployee(data))
+            .catch((err) => console.error("Failed to load employee", err));
     }, []);
 
     const handleLogout = () => {
@@ -44,20 +44,20 @@ const UserProfilePage: React.FC = () => {
     return (
         <>
             <Header />
-            {user ? (
+            {employee ? (
                 <div className="profile-page">
                     <ProfileCard
-                        name={user.name}
-                        username={user.username}
-                        phone={user.phoneNumber}
-                        email={user.email}
+                        name={employee.name}
+                        username={employee.username}
+                        phone={employee.phoneNumber}
+                        email={employee.email}
                         onLogout={handleLogout}
                     />
 
                     <div className="profile-options">
-                        <button className="profile-btn">View Your Adoptions</button>
-                        <button className="profile-btn">Update Account Details</button>
-                        <button className="profile-btn danger">Delete Account</button>
+                        <button className="profile-btn">Manage Adoptions</button>
+                        <button className="profile-btn">Manage Animals</button>
+                        <button className="profile-btn">Manage Found Animals</button>
                     </div>
                 </div>
             ) : (
@@ -67,4 +67,4 @@ const UserProfilePage: React.FC = () => {
     );
 };
 
-export default UserProfilePage;
+export default EmployeeProfilePage;

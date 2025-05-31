@@ -1,6 +1,6 @@
 package iss.animalshelter.animalshelterapp.service.service_impl;
 
-import iss.animalshelter.animalshelterapp.model.users.User;
+import iss.animalshelter.animalshelterapp.model.contacts.User;
 import iss.animalshelter.animalshelterapp.persistence.UsersRepository;
 import iss.animalshelter.animalshelterapp.service.UsersService;
 import lombok.AllArgsConstructor;
@@ -19,4 +19,20 @@ public class UsersServiceImpl implements UsersService {
         Optional<User> user = usersRepository.findByUsername(username);
         return user.orElse(null);
     }
+
+    @Override
+    public void deleteUserById(Long id) {
+        usersRepository.deleteById(id);
+    }
+
+    @Override
+    public User updateUser(Long id, User updatedUser) {
+        return usersRepository.findById(id).map(existing -> {
+            existing.setName(updatedUser.getName());
+            existing.setEmail(updatedUser.getEmail());
+            existing.setPhoneNumber(updatedUser.getPhoneNumber());
+            return usersRepository.save(existing);
+        }).orElseThrow(() -> new RuntimeException("User not found"));
+    }
+
 }

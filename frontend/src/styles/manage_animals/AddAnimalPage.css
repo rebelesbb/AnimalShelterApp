@@ -1,0 +1,71 @@
+.add-animal-page {
+    padding: 4rem 2rem;
+    max-width: 700px;
+    margin: 8rem auto;
+    background-color: #f8fffe;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-animal-page h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    margin-top: -1rem;
+}
+
+.animal-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.animal-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.animal-form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.animal-form-group input,
+.animal-form-group select,
+.animal-form-group textarea {
+    padding: 0.8rem;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.animal-form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.animal-submit-btn {
+    padding: 1rem;
+    font-size: 1.1rem;
+    background-color: #c0f8f1;
+    border: 1px solid lightgray;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.animal-submit-btn:hover {
+    background-color: #78ede8;
+}
+
+.animal-loading-text {
+    margin-top: 6rem;
+    text-align: center;
+}
+
+.animal-preview {
+    max-height: 200px;
+    margin-top: 0.5rem;
+    border-radius: 8px;
+    object-fit: cover;
+}

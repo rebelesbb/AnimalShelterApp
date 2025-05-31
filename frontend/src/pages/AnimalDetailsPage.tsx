@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import ReactModal from "react-modal";
+import "../styles/ModalStyle.css"
 import "../styles/AnimalDetailsPage.css";
 import Header from "../components/Header";
 
@@ -25,6 +27,8 @@ type Animal = {
 const AnimalDetailsPage: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const [animal, setAnimal] = useState<Animal | null>(null);
+    const [showModal, setShowModal] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch(`http://localhost:8080/api/animals/${id}`)
@@ -33,18 +37,32 @@ const AnimalDetailsPage: React.FC = () => {
             .catch((err) => console.error("Failed to fetch animal details", err));
     }, [id]);
 
+    const handleAdoptClick = () => {
+        const token = localStorage.getItem("token");
+        if (token) {
+            navigate(`/animals/adopt/${id}`);
+        } else {
+            setShowModal(true);
+        }
+    };
+
+    const confirmAdoptWithoutLogin = () => {
+        setShowModal(false);
+        navigate(`/animals/adopt/${id}`);
+    };
+
     if (!animal) return <div>Loading...</div>;
 
     return (
         <>
-            <Header/>
+            <Header />
 
             <div className="details-container">
                 <div className="details-card">
                     <div className="left-section">
                         <img src={`http://localhost:8080${animal.photoPath}`} alt={animal.name} />
                         <h2>{animal.name}</h2>
-                        <button className="adopt-button">Adopt</button>
+                        <button className="adopt-button" onClick={handleAdoptClick}>Adopt</button>
                     </div>
                     <div className="right-section">
                         <ul>
@@ -68,6 +86,26 @@ const AnimalDetailsPage: React.FC = () => {
                     </div>
                 </div>
             </div>
+
+            <ReactModal
+                isOpen={showModal}
+                onRequestClose={() => setShowModal(false)}
+                contentLabel="Continue Without Account"
+                className="confirm-modal"
+                overlayClassName="confirm-modal-overlay"
+            >
+                <h3>Do you have an account or want to create one?</h3>
+                <p>You can log in or continue without an account.</p>
+                <div className="modal-buttons">
+                    <button className="confirm-btn" onClick={() => navigate(`/login?redirect=/animals/adopt/${id}`)}>Yes</button>
+                    <button className="cancel-btn" onClick={() => {
+                        setShowModal(false);
+                        navigate(`/animals/adopt/${id}`);
+                    }}>
+                        Continue without account
+                    </button>
+                </div>
+            </ReactModal>
         </>
     );
 };
